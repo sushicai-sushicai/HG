@@ -2,10 +2,12 @@ package com.example.hg.activity;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
-
+	FragmentTransaction ft;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
