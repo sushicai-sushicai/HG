@@ -1,5 +1,7 @@
 package com.example.hg.activity;
 
+import com.lidroid.xutils.ViewUtils;
+
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -18,6 +20,8 @@ public class MainActivity extends BaseFragmentActivity implements OnCheckedChang
 	@Override
 	protected void init() {
 		setContentView(R.layout.activity_main);
+		//ViewUtils.inject(this);
+		ViewUtils.inject(this);
 		
 	}
 
