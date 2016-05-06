@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/head_50dp"
+	    android:orientation="horizontal"
+	    android:padding="@dimen/dimen_5dp">
+	   <ImageView
+            android:id="@+id/turn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="center" />
+	  	 <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="marquee"
+                android:ems="15"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLength="15"
+                android:singleLine="true"
+                android:text="标题"
+                android:textColor="@color/black1"
+                android:textSize="@dimen/dimen_20sp" />
+	  	 <EditText 
+	  	     android:id="@+id/et_title"
+	  	     android:layout_width="0dp"
+	  	     android:layout_height="wrap_content"
+	  	     android:layout_gravity="center_vertical"
+	  	     android:layout_weight="1"
+	  	     android:background="@drawable/login_bg_r"
+	  	     android:hint="请输入商家"
+	  	     android:padding="5dp"
+	  	     android:singleLine="true"
+	  	     android:textColor="@color/black2"
+	  	     android:textColorHint="@color/black2"
+	  	     android:textSize="16sp"
+	  	     android:visibility="gone"/>
+	  	 <TextView 
+	  	     android:id="@+id/tv_rigth"
+	  	     android:layout_width="40dp"
+	  	     android:layout_height="40dp"
+	  	     android:layout_gravity="center_vertical"
+	  	     android:gravity="center"
+	  	     android:text=""
+	  	     android:textColor="@color/red1"
+	  	     android:visibility="gone"/>
+	  	 <ImageView
+            android:id="@+id/more"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:src="@drawable/ic_launcher" />
+	</LinearLayout>
+	<View
+        android:id="@+id/head_v"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/black8" />
+	<include layout="@layout/animationlayout" />
+</LinearLayout>
