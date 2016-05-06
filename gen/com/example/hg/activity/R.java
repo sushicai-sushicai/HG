@@ -287,27 +287,183 @@ public final class R {
         public static final int yuanhuan=0x7f040032;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
-
+        public static final int abc_action_bar_default_height=0x7f050013;
+        public static final int abc_action_bar_icon_vertical_padding=0x7f050014;
+        public static final int abc_action_bar_progress_bar_size=0x7f05001b;
+        public static final int abc_action_bar_stacked_max_height=0x7f05001a;
+        public static final int abc_action_bar_stacked_tab_max_width=0x7f050012;
+        public static final int abc_action_bar_subtitle_bottom_margin=0x7f050018;
+        public static final int abc_action_bar_subtitle_text_size=0x7f050016;
+        public static final int abc_action_bar_subtitle_top_margin=0x7f050017;
+        public static final int abc_action_bar_title_text_size=0x7f050015;
+        public static final int abc_action_button_min_width=0x7f050019;
+        public static final int abc_config_prefDialogWidth=0x7f050011;
+        public static final int abc_dropdownitem_icon_width=0x7f050021;
+        public static final int abc_dropdownitem_text_padding_left=0x7f05001f;
+        public static final int abc_dropdownitem_text_padding_right=0x7f050020;
+        public static final int abc_panel_menu_list_width=0x7f05001c;
+        public static final int abc_search_view_preferred_width=0x7f05001e;
+        public static final int abc_search_view_text_min_width=0x7f05001d;
+        /** 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int head_50dp=0x7f050002;
+        public static final int activity_horizontal_margin=0x7f050022;
+        public static final int activity_icon_size=0x7f050028;
+        public static final int activity_vertical_margin=0x7f050023;
+        public static final int cell_height=0x7f05002c;
+        public static final int content_margin=0x7f05002a;
+        public static final int content_padding=0x7f05002b;
+        public static final int crop__bar_height=0x7f050010;
+        public static final int default_circle_indicator_radius=0x7f050024;
+        public static final int default_circle_indicator_stroke_width=0x7f050025;
+        public static final int dimen_10dp=0x7f050001;
+        public static final int dimen_12sp=0x7f05000e;
+        public static final int dimen_14sp=0x7f05000d;
+        public static final int dimen_15dp=0x7f050002;
+        public static final int dimen_16sp=0x7f05000c;
+        public static final int dimen_18sp=0x7f05000b;
+        public static final int dimen_20dp=0x7f050003;
+        public static final int dimen_20sp=0x7f05000a;
+        public static final int dimen_30dp=0x7f050004;
+        public static final int dimen_40dp=0x7f050005;
+        public static final int dimen_50dp=0x7f050007;
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int dimen_5dp=0x7f050000;
+        public static final int expand_tab_eara_height=0x7f05000f;
+        public static final int expand_tab_item_height=0x7f050006;
+        public static final int head_50dp=0x7f050008;
+        public static final int head_img_70dp=0x7f050009;
+        public static final int home_extrance_title_size=0x7f050027;
+        public static final int one_px=0x7f050029;
+        public static final int restaurant_icon_size=0x7f050026;
+        public static final int submit_text_size=0x7f05002d;
+        public static final int third_icon_size=0x7f05002e;
+        public static final int title_button_height=0x7f050030;
+        /**  标题配置 
+         */
+        public static final int title_height=0x7f05002f;
+        public static final int title_rightButton_padding=0x7f050031;
+        public static final int title_text_size=0x7f050032;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int a1=0x7f020000;
+        public static final int a2=0x7f020001;
+        public static final int a3=0x7f020002;
+        public static final int a4=0x7f020003;
+        public static final int a5=0x7f020004;
+        public static final int a6=0x7f020005;
+        public static final int a7=0x7f020006;
+        public static final int a8=0x7f020007;
+        public static final int abc_ic_ab_back_holo_dark=0x7f020008;
+        public static final int animation1=0x7f020009;
+        public static final int bg_home_yellow_gray=0x7f02000a;
+        public static final int button_above_showmenu=0x7f02000b;
+        public static final int choose_item_right=0x7f02000c;
+        public static final int choose_item_selected=0x7f02000d;
+        public static final int choosearea_bg_left=0x7f02000e;
+        public static final int choosearea_bg_mid=0x7f02000f;
+        public static final int choosearea_bg_right=0x7f020010;
+        public static final int choosebar_down=0x7f020011;
+        public static final int choosebar_line=0x7f020012;
+        public static final int choosebar_press_down=0x7f020013;
+        public static final int choosebar_press_up=0x7f020014;
+        public static final int code=0x7f020015;
+        public static final int crop__divider=0x7f020016;
+        public static final int crop__ic_cancel=0x7f020017;
+        public static final int crop__ic_done=0x7f020018;
+        public static final int find_normal=0x7f020019;
+        public static final int find_selected=0x7f02001a;
+        public static final int food_list_favor=0x7f02001b;
+        public static final int foodlist_bg_foodnum=0x7f02001c;
+        public static final int gouwuche_weixuanzhong=0x7f02001d;
+        public static final int gouwuche_xuanzhong=0x7f02001e;
+        public static final int home_find=0x7f02001f;
+        public static final int home_my=0x7f020020;
+        public static final int home_normal=0x7f020021;
+        public static final int home_order=0x7f020022;
+        public static final int home_search=0x7f020023;
+        public static final int home_selected=0x7f020024;
+        public static final int ic_launcher=0x7f020025;
+        public static final int ico_down=0x7f020026;
+        public static final int ico_up=0x7f020027;
+        public static final int login_bakc=0x7f020028;
+        public static final int login_bg_r=0x7f020029;
+        public static final int my_normal=0x7f02002a;
+        public static final int my_selected=0x7f02002b;
+        public static final int order_normal=0x7f02002c;
+        public static final int order_selected=0x7f02002d;
+        public static final int passwword=0x7f02002e;
+        public static final int pengyouq1=0x7f02002f;
+        public static final int place=0x7f020030;
+        public static final int ratingbar_star_gray=0x7f020031;
+        public static final int ratingbar_star_orange=0x7f020032;
+        public static final int restaurant_list_item_rate_selected=0x7f020033;
+        public static final int restaurant_list_item_rate_un_selected=0x7f020034;
+        public static final int right=0x7f020035;
+        public static final int scan_it=0x7f020036;
+        public static final int search_clear_normal=0x7f020037;
+        public static final int search_clear_pressed=0x7f020038;
+        public static final int serch=0x7f020039;
+        public static final int shezhi=0x7f02003a;
+        public static final int sp_backgroud=0x7f02003b;
+        public static final int sp_turn=0x7f02003c;
+        public static final int spinner_0=0x7f02003d;
+        public static final int spinner_1=0x7f02003e;
+        public static final int spinner_10=0x7f02003f;
+        public static final int spinner_11=0x7f020040;
+        public static final int spinner_2=0x7f020041;
+        public static final int spinner_3=0x7f020042;
+        public static final int spinner_4=0x7f020043;
+        public static final int spinner_5=0x7f020044;
+        public static final int spinner_6=0x7f020045;
+        public static final int spinner_7=0x7f020046;
+        public static final int spinner_8=0x7f020047;
+        public static final int spinner_9=0x7f020048;
+        public static final int user=0x7f020049;
+        public static final int weixin1=0x7f02004a;
+        public static final int weixin_iner_icon=0x7f02004b;
+        public static final int white_circle_70dp=0x7f02004c;
+        public static final int zhifubao1=0x7f02004d;
     }
     public static final class id {
-        public static final int action_settings=0x7f090003;
+        public static final int action_settings=0x7f09001a;
+        public static final int animationIV=0x7f090007;
+        public static final int animationlayout=0x7f090006;
+        public static final int et_title=0x7f09000a;
         public static final int fl=0x7f090000;
+        public static final int head=0x7f09000e;
+        public static final int head_v=0x7f09000d;
+        public static final int help=0x7f090016;
+        public static final int more=0x7f09000c;
+        public static final int myaddress=0x7f090013;
+        public static final int mycllect=0x7f090014;
+        public static final int myincome=0x7f090015;
+        public static final int online=0x7f090018;
+        public static final int phone=0x7f090010;
+        public static final int qrcode=0x7f090012;
+        public static final int rb_discover=0x7f090004;
         public static final int rb_home=0x7f090002;
+        public static final int rb_list=0x7f090003;
+        public static final int rb_my=0x7f090005;
         public static final int rg=0x7f090001;
+        public static final int shop=0x7f090017;
+        public static final int title=0x7f090009;
+        public static final int toinformation=0x7f090011;
+        public static final int tologin=0x7f09000f;
+        public static final int turn=0x7f090008;
+        public static final int tv_rigth=0x7f09000b;
+        public static final int tv_share=0x7f090019;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int animationlayout=0x7f030001;
+        public static final int header_layout=0x7f030002;
+        public static final int login=0x7f030003;
+        public static final int myhomelayout=0x7f030004;
+        public static final int myinfomation=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;
