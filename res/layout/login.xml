@@ -1,43 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sp="http://schemas.android.com/apk/res/com.shepai.huoguo.app"
+    android:id="@+id/sv_l"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray0"
     android:orientation="vertical"
-    android:background="@color/gray0">
-    <include layout="@layout/header_layout"/>
-    <LinearLayout 
+    android:scrollbars="none" >
+
+    <include layout="@layout/header_layout" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:orientation="vertical">
-        <TextView 
+        android:paddingRight="20dp" >
+
+        <TextView
             android:id="@+id/rb_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp"
+            android:paddingRight="5dp"
             android:text="注册"
             android:textColor="@color/rosered1"
-            android:visibility="gone"/>
-        <LinearLayout 
+            android:visibility="gone" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout 
+            android:layout_marginTop="20dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_weight="1">
-                <TextView android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="用户名"
-                    android:textColor="@color/black2"/>
-                <EditText 
+                    android:textColor="@color/black2" />
+
+                <EditText
                     android:id="@+id/et_username"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -51,84 +64,157 @@
                     android:singleLine="true"
                     android:textColor="@color/black2"
                     android:textColorHint="@color/gray1"
-                    android:textSize="16sp"/>
-                <TextView 
+                    android:textSize="16sp" />
+
+                <TextView
                     android:id="@+id/sms_code"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
                     android:text="获取验证码"
-                    android:textColor="@color/gray1"/>
+                    android:textColor="@color/gray1" />
             </LinearLayout>
-            <View 
+
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border1"/>
-            <LinearLayout 
+                android:background="@color/border1" />
+
+            <LinearLayout
                 android:id="@+id/ll_password"
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
                 android:layout_height="40dp"
                 android:layout_marginTop="20dp"
-                android:layout_weight="1">
-                <TextView 
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <TextView
                     android:id="@+id/tv_p"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="密   码"
-                    android:textColor="@color/black2"/>
-                <EditText 
-                    android:id="@+id/et_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:hint="请输入密码"
-                    android:inputType="textPassword"
-                    android:textColor="@color/black2"
-                    android:textColorHint="@color/gray1"
-                    android:textSize="16sp"
-                    android:background="@null"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"/>
-            </LinearLayout>
-            <!-- 验证码 -->
-            <View android:id="@+id/mv"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/border1"/>
-            <LinearLayout 
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:visibility="visible">
-                <TextView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="验证码"
-                    android:textColor="@color/black2"/>
+                    android:text="密  码 "
+                    android:textColor="@color/black2" />
 
                 <EditText
-                    android:id="@+id/et_code"
-                    android:layout_width="0dp"
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="3"
-                    android:hint="请输入验证码"
-                    android:singleLine="true"
                     android:background="@null"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:password="true"
+                    android:singleLine="true"
                     android:textColor="@color/black2"
                     android:textColorHint="@color/gray1"
-                    android:textSize="16sp">                   
-                </EditText>
-               
+                    android:textSize="16sp" />
             </LinearLayout>
+            <!-- 验证码 -->
+  <View
+      android:id="@+id/mv"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border1" />
+        <LinearLayout
+            android:id="@+id/ll_code"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="验证码"
+                android:textColor="@color/black2" />
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:background="@null"
+                android:hint="请输入验证码"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="@color/black2"
+                android:textColorHint="@color/gray1"
+                android:textSize="16sp" />
+
+           <!--  <com.shepai.huoguo.app.views.IndentfyingCode
+                android:id="@+id/fresh_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                sp:titleText="1234"
+                sp:titleTextColor="@color/green3"
+                sp:titleTextSize="30sp" /> -->
         </LinearLayout>
+            
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/rosered1"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <CheckBox
+                android:id="@+id/cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:checked="true"
+                android:padding="5dp"
+                android:text="手机动态码登录"
+                android:textColor="@color/black2"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_wangjimima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="5dp"
+                android:text="忘记密码 ?"
+                android:textColor="@color/black2"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
     </LinearLayout>
 
 </LinearLayout>
