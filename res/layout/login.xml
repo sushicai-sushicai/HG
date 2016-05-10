@@ -149,16 +149,14 @@
                 android:textColorHint="@color/gray1"
                 android:textSize="16sp" />
 
-           <!--  <com.shepai.huoguo.app.views.IndentfyingCode
+           <com.example.hg.view.IndentfyingCode
                 android:id="@+id/fresh_code"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                sp:titleText="1234"
-                sp:titleTextColor="@color/green3"
-                sp:titleTextSize="30sp" /> -->
+               />
         </LinearLayout>
             
         </LinearLayout>
