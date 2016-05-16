@@ -1,12 +1,44 @@
 package com.example.hg.activity;
 
+import java.util.Timer;
+
+import com.example.hg.utils.TimerDown;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+
 import android.os.Bundle;
+import android.provider.Telephony;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends BaseActivity implements OnCheckedChangeListener{
+	@ViewInject(R.id.title)
+	private TextView title;
+	@ViewInject(R.id.sms_code)
+	private TextView sms_code;
+	@ViewInject(R.id.tv_rigth)
+	private TextView tv_rihth;
+	@ViewInject(R.id.more)
+	private ImageView more;
+	@ViewInject(R.id.turn)
+	private ImageView turn;
+	@ViewInject(R.id.cb)
+	private CheckBox checkbox;
+	@ViewInject(R.id.et_username)
+	private EditText et_username;
+	@ViewInject(R.id.et_password)
+	private EditText et_password;
+	
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+ 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
@@ -19,6 +51,44 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 	protected void init() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.login);
+		ViewUtils.inject(this);
+		title.setText("登录");
+		sms_code.setVisibility(View.GONE);
+		tv_rihth.setVisibility(View.VISIBLE);
+		tv_rihth.setTextColor(this.getResources().getColor(R.color.red1));
+		tv_rihth.setText("注册");
+		more.setVisibility(View.INVISIBLE);
+		turn.setImageResource(R.drawable.login_bakc);
+		checkbox.setOnCheckedChangeListener(this);
+		et_username.setText(getPreferenceString("userinfo"));
+		et_password.setText(getPreferenceString("password"));	
+		
+	}
+	@OnClick({R.id.turn,R.id.tv_login,R.id.tv_forgettpassword,R.id.tv_rigth,R.id.sms_code})
+	public void myClick(View v){
+		Toast.makeText(this, v.getId(), Toast.LENGTH_SHORT).show();
+		switch (v.getId()) {
+		case R.id.turn:
+			finish();
+			break;
+		case R.id.more:
+			Toast.makeText(this,"更多去处敬请期待",Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.tv_login:
+			Toast.makeText(this,"我要登录",Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.sms_code:
+			TimerDown.setTimerDown(sms_code);
+			Toast.makeText(this,"发送短信",Toast.LENGTH_SHORT).show();
+		case R.id.tv_forgettpassword:
+			Toast.makeText(this,"忘记短信",Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.tv_rigth:
+			Toast.makeText(this,"注册",Toast.LENGTH_SHORT).show();
+			break;
+		default:
+			break;
+		}
 		
 	}
 	

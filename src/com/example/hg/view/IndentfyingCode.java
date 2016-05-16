@@ -27,7 +27,7 @@ public class IndentfyingCode extends View {
 			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
 			'X', 'Y', 'Z' };
 	/**验证码*/
-	private String text;
+	private String text="";
 	/**验证码颜色*/
 	private int textColor;
 	/**验证码大小*/
@@ -59,8 +59,7 @@ public class IndentfyingCode extends View {
 		// TODO Auto-generated constructor stub
 		this.context=context;
 		random = new Random();
-		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
-				R.styleable.IndentfyingCode, defStyle, 0);
+		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,R.styleable.IndentfyingCode, defStyle, 0);
 		for (int i = 0; i < a.getIndexCount(); i++) {
 			switch (a.getIndex(i)) {
 			case R.styleable.IndentfyingCode_titleText:
