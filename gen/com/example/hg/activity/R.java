@@ -1040,6 +1040,7 @@ containing a value of this type.
         public static final int myaddress=0x7f0803a4;
         public static final int mycllect=0x7f0803a5;
         public static final int myincome=0x7f0803a6;
+        public static final int myprogressbar=0x7f0803ab;
         public static final int name=0x7f080298;
         public static final int navigation_bar=0x7f080050;
         public static final int navigation_bar_left_button_wrapper=0x7f080073;
@@ -1478,6 +1479,7 @@ containing a value of this type.
         public static final int login=0x7f030003;
         public static final int myhomelayout=0x7f030004;
         public static final int myinfomation=0x7f030005;
+        public static final int myprogressbar=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -1530,14 +1532,7 @@ containing a value of this type.
  API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0a0000;
-        /**  对话框 >
-    <style name="agreemdialog" >
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
-    </style 
- 对话框>
+        /**  对话框>
     <style name="Dialog_Fullscreen" >
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
@@ -1548,18 +1543,21 @@ containing a value of this type.
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0003;
-        public static final int Crop=0x7f0a0006;
-        public static final int Crop_ActionButton=0x7f0a0007;
-        public static final int Crop_ActionButtonText=0x7f0a0008;
-        public static final int Crop_ActionButtonText_Cancel=0x7f0a000a;
-        public static final int Crop_ActionButtonText_Done=0x7f0a0009;
+        public static final int AppTheme=0x7f0a0004;
+        public static final int Crop=0x7f0a0007;
+        public static final int Crop_ActionButton=0x7f0a0008;
+        public static final int Crop_ActionButtonText=0x7f0a0009;
+        public static final int Crop_ActionButtonText_Cancel=0x7f0a000b;
+        public static final int Crop_ActionButtonText_Done=0x7f0a000a;
         public static final int MyTransparent=0x7f0a0001;
         public static final int PopupWindowAnimation=0x7f0a0002;
-        public static final int RatingBar_Grey=0x7f0a0005;
+        public static final int RatingBar_Grey=0x7f0a0006;
+        /**  对话框 
+         */
+        public static final int agreemdialog=0x7f0a0003;
         /**  ratingbar-style 
          */
-        public static final int ratingbarstyle=0x7f0a0004;
+        public static final int ratingbarstyle=0x7f0a0005;
     }
     public static final class styleable {
         /** Attributes that can be used with a IndentfyingCode.

@@ -1,12 +1,16 @@
 package com.example.hg.activity;
 
 
+import com.example.hg.action.LoginM;
+import com.example.hg.utils.Contacts;
+import com.example.hg.utils.ProgressBar;
 import com.example.hg.utils.TimerDown;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -34,7 +38,8 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 	@ViewInject(R.id.et_password)
 	private EditText et_password;
 	
-	
+	private boolean isChecked=true;
+	private String sessionid="";
 	@Override
  	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -64,7 +69,6 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 	}
 	@OnClick({R.id.turn,R.id.tv_login,R.id.tv_forgettpassword,R.id.tv_rigth,R.id.sms_code})
 	public void myClick(View v){
-		Toast.makeText(this, v.getId(), Toast.LENGTH_SHORT).show();
 		switch (v.getId()) {
 		case R.id.turn:
 			finish();
@@ -73,7 +77,19 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 			Toast.makeText(this,"更多去处敬请期待",Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.tv_login:
-			Toast.makeText(this,"我要登录",Toast.LENGTH_SHORT).show();
+			if(!appContext.isNetWorkConnected()){
+				Toast.makeText(this,R.string.connection_error,Toast.LENGTH_SHORT).show();
+			}
+			if(et_username.getText().toString().length()!=11){
+				Toast.makeText(this,"请输入11位手机号",Toast.LENGTH_SHORT).show();
+				return ;
+			}
+			savePreferenceString("username", et_username.getText().toString());
+			if(et_password.getText().toString().length()<6){
+				Toast.makeText(this,"密码不能小于6位",Toast.LENGTH_SHORT).show();
+			}
+			savePreferenceString("password", et_password.getText().toString());
+			new LoginM(this, handler, null,et_username.getText().toString(),et_password.getText().toString(),isChecked,sessionid);
 			break;
 		case R.id.sms_code:
 			TimerDown.setTimerDown(sms_code);
@@ -89,5 +105,20 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 		}
 		
 	}
-	
+	Handler handler=new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			ProgressBar.dismmisProgress();//关闭进度条
+			switch (msg.what) {
+			case Contacts.SUCCESS_1:
+				toast("登录成功");
+				finish();
+				break;
+			case Contacts.FAIL_2:
+				break;
+			case Contacts.FAIL_0:
+				toast(R.string.connection_error);
+				break;
+			}
+		};
+	};
 }
