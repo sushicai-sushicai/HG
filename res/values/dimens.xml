@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_10dp">10dp</dimen>
     <dimen name="dimen_15dp">15dp</dimen>
@@ -10,8 +9,7 @@
      <dimen name="expand_tab_item_height">45dp</dimen>
     <dimen name="dimen_50dp">50dp</dimen>
     <dimen name="head_50dp">50dp</dimen>
-    <dimen name="head_img_70dp">70dp</dimen>
-    
+    <dimen name="head_img_70dp">70dp</dimen>    
     <dimen name="dimen_20sp">20sp</dimen>
     <dimen name="dimen_18sp">18sp</dimen>
     <dimen name="dimen_16sp">16sp</dimen>

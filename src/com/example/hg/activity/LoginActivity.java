@@ -1,6 +1,5 @@
 package com.example.hg.activity;
 
-import java.util.Timer;
 
 import com.example.hg.utils.TimerDown;
 import com.lidroid.xutils.ViewUtils;
@@ -8,7 +7,6 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import android.os.Bundle;
-import android.provider.Telephony;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;

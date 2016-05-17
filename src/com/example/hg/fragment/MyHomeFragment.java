@@ -89,8 +89,6 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 	//@OnClick({R.id.myaddress,R.id.mycollect,R.id.turn,R.id.more,R.id.tologin,R.id.toinformation,R.id.tv_share})
 	@OnClick({R.id.myaddress})
 	public void myclick(View v){	
-		toast("HELLO");
-		System.out.println(MyApplication.isLogin);
 		if(!MyApplication.isLogin){
 			toast("请登录!");
 			gotoActivity(LoginActivity.class, null);			

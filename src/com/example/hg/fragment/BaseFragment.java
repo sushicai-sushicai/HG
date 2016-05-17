@@ -32,13 +32,4 @@ public abstract class BaseFragment extends Fragment implements OnClickListener{
 		if(bundle!=null) itent.putExtras(bundle);
 		startActivity(itent);
 	}
-	/*public void gotoActivity(Class<? extends Activity> cls, 
-			Bundle bundle) {
-		Intent intent = new Intent(context, cls);
-		if (bundle != null) {
-			intent.putExtras(bundle);
-		}
-		startActivity(intent);
-		
-	}*/
 }
