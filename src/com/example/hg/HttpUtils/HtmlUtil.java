@@ -4,12 +4,12 @@ package com.example.hg.HttpUtils;
 import java.util.List;
 
 import org.apache.http.cookie.Cookie;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONException;
-import com.alibaba.fastjson.JSONObject;
 import com.example.hg.HttpUtils.HttpCallBack.CallBack;
 import com.example.hg.activity.R;
 import com.example.hg.utils.Contacts;
@@ -40,14 +40,12 @@ public class HtmlUtil extends Contacts{
 			dataUrl=context.getResources().getString(R.string.dataurl);
 			imgUrl=context.getResources().getString(R.string.imgurl);
 		}
-		System.out.println("======dataUrl:====="+dataUrl);
-		System.out.println("======imgUrl:====="+imgUrl);
 	}
 	public void xutils(HttpMethod method,String mothodname,RequestParams rps,final CallBack collback){
 		if(httpUtils==null) httpUtils=new HttpUtils();
 		//保存服务器端session的ID
 		PreferencesCookieStore cookieStore=new PreferencesCookieStore(context);
-		cookieStore.clear();//清楚原来的cookie
+		cookieStore.clear();//清除原来的cookie
 		httpUtils.configCookieStore(cookieStore);
 		List<Cookie> cookie=cookieStore.getCookies();
 		httpUtils.configSoTimeout(10*1000);
@@ -70,8 +68,9 @@ public class HtmlUtil extends Contacts{
 				LogShow.d(str);
 				if(StringUtil.isJSONObejcet(str)){
 					try {
-						collback.onBack(JSONObject.parseObject(str));
-					} catch (JSONException e) {
+						collback.onBack(new JSONObject(str));
+					} catch (org.json.JSONException e) {
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					
