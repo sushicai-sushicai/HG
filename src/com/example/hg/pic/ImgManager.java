@@ -55,6 +55,7 @@ public class ImgManager {
 		Drawable drawable=new RoundleDrawable(bitmap);
 		head.setImageDrawable(drawable);
 		
+		
 		/*if (head == null) {
 			return;
 		}
@@ -69,7 +70,7 @@ public class ImgManager {
 	 * @param imgurl
 	 * @param head
 	 */
-	public void readWebImg(final String imgurl,ImageView head){
+	public void readWebImg(final String imgurl,final ImageView head){
 		if(imgurl==null || imgurl.equals("null"))return ;
 		new Thread(){
 			@Override
