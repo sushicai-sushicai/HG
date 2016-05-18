@@ -5,12 +5,12 @@
     <attr name="titleTextSize" format="dimension" />
   
  
-
-   
     <declare-styleable name="IndentfyingCode">
         <attr name="titleText" />
         <attr name="titleTextColor" />
         <attr name="titleTextSize" />
+        <attr name="codeCount" format="integer|reference"></attr>
+		<attr name="textSize" format="dimension"></attr>
     </declare-styleable>
 
     
