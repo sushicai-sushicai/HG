@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import com.example.hg.activity.R;
-import com.example.hg.utils.LogShow;
-
-import android.R.string;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -32,9 +29,10 @@ public class IndentfyingCode extends View {
 			'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 			'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
 			'X', 'Y', 'Z' };
-	/** 验证码 */
-	private String text;
-	/** 验证码颜色 */
+
+	/**验证码*/
+	private String text="";
+	/**验证码颜色*/
 	private int textColor;
 	/** 验证码大小 */
 	private int textSize;
@@ -264,37 +262,37 @@ public class IndentfyingCode extends View {
 	 * @return
 	 */
 	public static String getCharAndNumr(int length) {
-		System.out.println("========length===========" + length);
+		//System.out.println("========length===========" + length);
 		String val = "";
 		Random random = new Random();
-		System.out.println("========random===========" + random);
+	//	System.out.println("========random===========" + random);
 		for (int i = 0; i < length; i++) {
 			// 输出字母还是数字
-			System.out.println("========random.nextInt(2)==========="
-					+ random.nextInt(2));
-			System.out.println("========random.nextInt(2) % 2==========="
-					+ random.nextInt(2) % 2);
+			//System.out.println("========random.nextInt(2)==========="
+			//		+ random.nextInt(2));
+			//System.out.println("========random.nextInt(2) % 2==========="
+			//		+ random.nextInt(2) % 2);
 			String charOrNum = random.nextInt(2) % 2 == 0 ? "char" : "num";
-			System.out.println("========charOrNum===========" + charOrNum);
+			//System.out.println("========charOrNum===========" + charOrNum);
 			// 字符串
 			if ("char".equalsIgnoreCase(charOrNum)) {
 				// 取得大写字母还是小写字母
-				System.err.println("-------------char-----------random--"
-						+ random);
-				System.err
-						.println("-------------char-----------random.nextInt(2)--"
-								+ random.nextInt(2));
+				//System.err.println("-------------char-----------random--"
+				//		+ random);
+				//System.err
+				//		.println("-------------char-----------random.nextInt(2)--"
+						//		+ random.nextInt(2));
 				int choice = random.nextInt(2) % 2 == 0 ? 65 : 97;
-				System.err.println("-------------choice-------------" + choice);
-				System.err
-						.println("-------------(char) (choice + random.nextInt(26))-------------"
-								+ (char) (choice + random.nextInt(26)));
+				//System.err.println("-------------choice-------------" + choice);
+			//	System.err
+					//	.println("-------------(char) (choice + random.nextInt(26))-------------"
+					//			+ (char) (choice + random.nextInt(26)));
 				val += (char) (choice + random.nextInt(26));
-				System.err.println("----------val-----------" + val);
+				//System.err.println("----------val-----------" + val);
 			} else if ("num".equalsIgnoreCase(charOrNum)) { // 数字
-				System.err.println("++++++++++++num+++++++++++++" + charOrNum);
+				//System.err.println("++++++++++++num+++++++++++++" + charOrNum);
 				val += String.valueOf(random.nextInt(10));
-				System.err.println("++++++++++++val+++++++++++++" + val);
+				//System.err.println("++++++++++++val+++++++++++++" + val);
 			}
 		}
 		return val;

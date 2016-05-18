@@ -1,67 +1,47 @@
 package com.example.hg.activity;
 
-import com.example.hg.view.IndentfyingCode;
+
+import com.example.hg.action.LoginM;
+import com.example.hg.utils.Contacts;
+import com.example.hg.utils.ProgressBar;
+import com.example.hg.utils.TimerDown;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends BaseActivity implements OnCheckedChangeListener{
-	/** 返回按钮 */
-	@ViewInject(R.id.turn)
-	private ImageView turn;
-	@ViewInject(R.id.more)
-	private ImageView more;
-	/** 标题 */
 	@ViewInject(R.id.title)
 	private TextView title;
-
-	/** 登录按钮 */
-	@ViewInject(R.id.tv_login)
-	private TextView tv_login;
-	/** 获取验证码 */
 	@ViewInject(R.id.sms_code)
 	private TextView sms_code;
-	
-	@ViewInject(R.id.tv_p)
-	private TextView tv_p;
-	/** 跳到注册页 */
-	//@ViewInject(R.id.tv_right)
-	private TextView tv_right;
-
-	@ViewInject(R.id.mv)
-	private View mv;
-	/** 用户名输入框 */
+	@ViewInject(R.id.tv_rigth)
+	private TextView tv_rihth;
+	@ViewInject(R.id.more)
+	private ImageView more;
+	@ViewInject(R.id.turn)
+	private ImageView turn;
+	@ViewInject(R.id.cb)
+	private CheckBox checkbox;
 	@ViewInject(R.id.et_username)
 	private EditText et_username;
-	/** 密码输入框 */
 	@ViewInject(R.id.et_password)
 	private EditText et_password;
-	/** 密码输入框 */
-	@ViewInject(R.id.et_code)
-	private EditText et_code;
-	/**验证码 容器 */
-	@ViewInject(R.id.ll_code)
-	private LinearLayout ll_code;
-	/** 验证码 */
-	//@ViewInject(R.id.fresh_code)
-	private IndentfyingCode fresh_code;
-	/** 是否记住密码*/
-	@ViewInject(R.id.cb)
-	private CheckBox cb;
+	
 	private boolean isChecked=true;
 	private String sessionid="";
-	//private LoginM loginM;
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+ 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
@@ -75,8 +55,71 @@ public class LoginActivity extends BaseActivity implements OnCheckedChangeListen
 		// TODO Auto-generated method stub
 		setContentView(R.layout.login);
 		ViewUtils.inject(this);
-		title.setText("登陆");
+		title.setText("登录");
+		sms_code.setVisibility(View.GONE);
+		tv_rihth.setVisibility(View.VISIBLE);
+		tv_rihth.setTextColor(this.getResources().getColor(R.color.red1));
+		tv_rihth.setText("注册");
+		more.setVisibility(View.INVISIBLE);
+		turn.setImageResource(R.drawable.login_bakc);
+		checkbox.setOnCheckedChangeListener(this);
+		et_username.setText(getPreferenceString("username"));
+		et_password.setText(getPreferenceString("password"));	
 		
 	}
-	
+	@OnClick({R.id.turn,R.id.tv_login,R.id.tv_forgettpassword,R.id.tv_rigth,R.id.sms_code})
+	public void myClick(View v){
+		switch (v.getId()) {
+		case R.id.turn:
+			finish();
+			break;
+		case R.id.more:
+			Toast.makeText(this,"更多去处敬请期待",Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.tv_login:
+			if(!appContext.isNetWorkConnected()){
+				toast(R.string.connection_error);
+				return;
+			}
+			if(et_username.getText().toString().length()!=11){
+				toast("请输入11位手机号");
+				return ;
+			}
+			savePreferenceString("username", et_username.getText().toString());
+			if(et_password.getText().toString().length()<6){
+				toast("密码不能小于6位");
+			}
+			savePreferenceString("password", et_password.getText().toString());
+			new LoginM(this, handler, null,et_username.getText().toString(),et_password.getText().toString(),isChecked,sessionid);
+			break;
+		case R.id.sms_code:
+			TimerDown.setTimerDown(sms_code);
+			Toast.makeText(this,"发送短信",Toast.LENGTH_SHORT).show();
+		case R.id.tv_forgettpassword:
+			Toast.makeText(this,"忘记短信",Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.tv_rigth:
+			Toast.makeText(this,"注册",Toast.LENGTH_SHORT).show();
+			break;
+		default:
+			break;
+		}
+		
+	}
+	Handler handler=new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			ProgressBar.dismmisProgress();//关闭进度条
+			switch (msg.what) {
+			case Contacts.SUCCESS_1:
+				toast("登录成功");
+				finish();
+				break;
+			case Contacts.FAIL_2:
+				break;
+			case Contacts.FAIL_0:
+				toast(R.string.connection_error);
+				break;
+			}
+		};
+	};
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--152 hepan  190 longge  -->
-    <string name="testurl">http://192.168.1.104:8090/app/web/</string>
-    <string name="testimgurl">http://192.168.1.104:8090/upload/</string>
+    <string name="testurl">http://192.168.1.7:8090/app/web/</string>
+    <string name="testimgurl">http://192.168.1.7:8090/upload/</string>
     <string name="dataurl">http://m.fgqqg.com/</string>
     <string name="imgurl">imgurl</string>
 </resources>

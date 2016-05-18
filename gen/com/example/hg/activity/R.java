@@ -1055,6 +1055,7 @@ containing a value of this type.
         public static final int myaddress=0x7f0803a4;
         public static final int mycllect=0x7f0803a5;
         public static final int myincome=0x7f0803a6;
+        public static final int myprogressbar=0x7f0803ab;
         public static final int name=0x7f080298;
         public static final int navigation_bar=0x7f080050;
         public static final int navigation_bar_left_button_wrapper=0x7f080073;
@@ -1415,11 +1416,11 @@ containing a value of this type.
         public static final int tologin=0x7f0803a0;
         public static final int top_action_bar=0x7f080155;
         public static final int turn=0x7f08038d;
+        public static final int tv_forgettpassword=0x7f08039e;
         public static final int tv_login=0x7f08039c;
         public static final int tv_p=0x7f080396;
         public static final int tv_rigth=0x7f08038f;
         public static final int tv_share=0x7f0803aa;
-        public static final int tv_wangjimima=0x7f08039e;
         public static final int up=0x7f080156;
         public static final int update_later=0x7f08035a;
         public static final int update_now=0x7f08035b;
@@ -1493,6 +1494,7 @@ containing a value of this type.
         public static final int login=0x7f030003;
         public static final int myhomelayout=0x7f030004;
         public static final int myinfomation=0x7f030005;
+        public static final int myprogressbar=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
@@ -1512,8 +1514,6 @@ containing a value of this type.
         public static final int no_data=0x7f05000d;
         public static final int scan_tips=0x7f050005;
         public static final int testimgurl=0x7f050001;
-        /** 152 hepan  190 longge  
-         */
         public static final int testurl=0x7f050000;
     }
     public static final class style {
@@ -1545,27 +1545,32 @@ containing a value of this type.
  API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0a0000;
-        /**  Application theme. 
+        /**  对话框>
+    <style name="Dialog_Fullscreen" >
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0a0005;
-        public static final int Crop=0x7f0a0008;
-        public static final int Crop_ActionButton=0x7f0a0009;
-        public static final int Crop_ActionButtonText=0x7f0a000a;
-        public static final int Crop_ActionButtonText_Cancel=0x7f0a000c;
-        public static final int Crop_ActionButtonText_Done=0x7f0a000b;
-        /**  对话框 
-         */
-        public static final int Dialog_Fullscreen=0x7f0a0004;
+        public static final int AppTheme=0x7f0a0004;
+        public static final int Crop=0x7f0a0007;
+        public static final int Crop_ActionButton=0x7f0a0008;
+        public static final int Crop_ActionButtonText=0x7f0a0009;
+        public static final int Crop_ActionButtonText_Cancel=0x7f0a000b;
+        public static final int Crop_ActionButtonText_Done=0x7f0a000a;
         public static final int MyTransparent=0x7f0a0001;
         public static final int PopupWindowAnimation=0x7f0a0002;
-        public static final int RatingBar_Grey=0x7f0a0007;
+        public static final int RatingBar_Grey=0x7f0a0006;
         /**  对话框 
          */
         public static final int agreemdialog=0x7f0a0003;
         /**  ratingbar-style 
          */
-        public static final int ratingbarstyle=0x7f0a0006;
+        public static final int ratingbarstyle=0x7f0a0005;
     }
     public static final class styleable {
         /** Attributes that can be used with a IndentfyingCode.
