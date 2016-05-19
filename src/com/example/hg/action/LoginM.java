@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import com.example.hg.HttpUtils.HttpCallBack.CallBack;
 import com.example.hg.app.MyApplication;
 import com.example.hg.entity.Member;
+import com.example.hg.pic.ImgManager;
 import com.example.hg.utils.Contacts;
 import com.example.hg.utils.MD5;
 import com.example.hg.utils.ProgressBar;
@@ -20,6 +21,7 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import android.content.Context;
 import android.os.Handler;
 import android.telephony.gsm.GsmCellLocation;
+import android.widget.Toast;
 public class LoginM extends BaseManger{
 	private boolean isPwd=true;
 	protected Handler handler;
@@ -68,7 +70,10 @@ public class LoginM extends BaseManger{
 					savePreference("isLogin", true);
 					savePreference("pwd", member.pwd);
 					savePreference("time", System.currentTimeMillis());
-					ManagerImg
+					ImgManager im=new ImgManager();
+					im.readWebImg(member.memheadpic,null);
+					MyApplication.isLogin=true;
+					
 					
 				}catch (JSONException e) {
 					// TODO Auto-generated catch block

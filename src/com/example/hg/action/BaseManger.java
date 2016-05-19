@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Handler;
+import android.widget.Toast;
 
 public abstract class BaseManger {
 	protected Context context;
@@ -34,6 +35,9 @@ public abstract class BaseManger {
 		if(value instanceof java.lang.Long) editor.putLong(key, Long.parseLong(value.toString()));
 		
 		editor.commit();		
+	}
+	public void toast(String text){
+		Toast.makeText(context, text, Toast.LENGTH_LONG).show();
 	}
 	
 	
