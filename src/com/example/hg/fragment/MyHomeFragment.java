@@ -1,6 +1,9 @@
 package com.example.hg.fragment;
 
+import com.example.hg.HttpUtils.StringUtil;
+import com.example.hg.activity.AdressActivity;
 import com.example.hg.activity.LoginActivity;
+import com.example.hg.activity.MyInformationActivity;
 import com.example.hg.activity.R;
 import com.example.hg.app.MyApplication;
 import com.lidroid.xutils.ViewUtils;
@@ -46,8 +49,12 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onResume();
 		if(MyApplication.isLogin){
-			//tologin.setText(getPreferenceString("username"));
-			toast("sssssss");
+			tologin.setText(getPreferenceString("username"));
+			String tel=getPreferenceString("memphone");
+			if(tel.length()==11) phone.setText(StringUtil.replacephoneString(tel));
+			
+			
+			
 		}
 		/*if (MyApplication.isLogin) {
 			tologin.setText(getPreferenceString("memnick"));
@@ -81,7 +88,6 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 	protected void init() {
 		title.setText("我的");
 		turn.setVisibility(View.VISIBLE);
-
 		turn.setImageResource(R.drawable.shezhi);
 		more.setImageResource(R.drawable.shezhi);
 		more.setOnClickListener(this);
@@ -90,11 +96,22 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		
 	}
 	//@OnClick({R.id.myaddress,R.id.mycollect,R.id.turn,R.id.more,R.id.tologin,R.id.toinformation,R.id.tv_share})
-	@OnClick({R.id.myaddress})
+	@OnClick({R.id.myaddress,R.id.toinformation})
 	public void myclick(View v){	
 		if(!MyApplication.isLogin){
 			toast("请登录!");
-			gotoActivity(LoginActivity.class, null);			
+			gotoActivity(LoginActivity.class, null);	
+			return;
+		}
+		switch (v.getId()) {
+		case R.id.myaddress:
+			gotoActivity(AdressActivity.class, null);
+			break;
+		case R.id.toinformation:
+			gotoActivity(MyInformationActivity.class, null);
+
+		default:
+			break;
 		}
 	/*	if (!MyApplication.isLogin) {
 			toast("请登录");

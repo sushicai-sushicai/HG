@@ -19,4 +19,10 @@ public class DiscoverFragment extends BaseFragment implements OnItemClickListene
 		
 	}
 
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

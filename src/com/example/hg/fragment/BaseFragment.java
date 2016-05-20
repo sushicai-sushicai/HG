@@ -1,5 +1,7 @@
 package com.example.hg.fragment;
 
+import com.example.hg.app.MyApplication;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -7,17 +9,17 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public abstract class BaseFragment extends Fragment implements OnClickListener{
+public abstract class BaseFragment extends Fragment{
 	Activity context;
+	MyApplication application;
 	
 	@Override
-	public void onClick(View arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onAttach(Activity activity){
+		super.onAttach(activity);
+		context=activity;
+		application=(MyApplication) activity.getApplication();
 	}
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

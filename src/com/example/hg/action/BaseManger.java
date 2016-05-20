@@ -31,8 +31,7 @@ public abstract class BaseManger {
 		if(value instanceof java.lang.String) editor.putString(key, value.toString());
 		if(value instanceof java.lang.Boolean) editor.putBoolean(key, (Boolean)value);
 		if(value instanceof java.lang.Integer) editor.putInt(key, Integer.parseInt(value.toString()));
-		if(value instanceof java.lang.Long) editor.putLong(key, Long.parseLong(value.toString()));
-		
+		if(value instanceof java.lang.Long) editor.putLong(key, Long.parseLong(value.toString()));		
 		editor.commit();		
 	}
 	public void toast(String text){
