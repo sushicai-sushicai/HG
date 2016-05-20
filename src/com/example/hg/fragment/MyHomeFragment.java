@@ -1,5 +1,6 @@
 package com.example.hg.fragment;
 
+import com.example.hg.activity.AdressActivity;
 import com.example.hg.activity.LoginActivity;
 import com.example.hg.activity.R;
 import com.example.hg.app.MyApplication;
@@ -89,9 +90,18 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 	//@OnClick({R.id.myaddress,R.id.mycollect,R.id.turn,R.id.more,R.id.tologin,R.id.toinformation,R.id.tv_share})
 	@OnClick({R.id.myaddress})
 	public void myclick(View v){	
-		if(!MyApplication.isLogin){
+		if(MyApplication.isLogin){
 			toast("请登录!");
-			gotoActivity(LoginActivity.class, null);			
+			gotoActivity(LoginActivity.class, null);	
+			return;
+		}
+		switch (v.getId()) {
+		case R.id.myaddress:
+			gotoActivity(AdressActivity.class, null);
+			break;
+
+		default:
+			break;
 		}
 	/*	if (!MyApplication.isLogin) {
 			toast("请登录");
