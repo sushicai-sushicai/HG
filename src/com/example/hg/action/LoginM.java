@@ -72,8 +72,7 @@ public class LoginM extends BaseManger{
 					savePreference("time", System.currentTimeMillis());
 					ImgManager im=new ImgManager();
 					im.readWebImg(member.memheadpic,null);
-					MyApplication.isLogin=true;
-					
+					MyApplication.isLogin=true;	
 					
 				}catch (JSONException e) {
 					// TODO Auto-generated catch block

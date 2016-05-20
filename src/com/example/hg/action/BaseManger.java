@@ -28,7 +28,6 @@ public abstract class BaseManger {
 	public void savePreference(String key, Object value) {
 		SharedPreferences sp=context.getSharedPreferences(userinfo, Context.MODE_PRIVATE);
 		Editor editor=sp.edit();
-		System.out.println(value.getClass());
 		if(value instanceof java.lang.String) editor.putString(key, value.toString());
 		if(value instanceof java.lang.Boolean) editor.putBoolean(key, (Boolean)value);
 		if(value instanceof java.lang.Integer) editor.putInt(key, Integer.parseInt(value.toString()));

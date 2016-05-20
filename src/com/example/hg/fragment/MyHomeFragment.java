@@ -45,7 +45,10 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-
+		if(MyApplication.isLogin){
+			//tologin.setText(getPreferenceString("username"));
+			toast("sssssss");
+		}
 		/*if (MyApplication.isLogin) {
 			tologin.setText(getPreferenceString("memnick"));
 			String ph=getPreferenceString("memphone");
