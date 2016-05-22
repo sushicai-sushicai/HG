@@ -41,7 +41,7 @@ public class HtmlUtil extends Contacts{
 			imgUrl=context.getResources().getString(R.string.imgurl);
 		}
 	}
-	public void xutils(HttpMethod method,String mothodname,RequestParams rps,final CallBack collback){
+	public void xutils(HttpMethod method,String requestUrl,RequestParams rps,final CallBack collback){
 		if(httpUtils==null) httpUtils=new HttpUtils();
 		//保存服务器端session的ID
 		PreferencesCookieStore cookieStore=new PreferencesCookieStore(context);
@@ -49,7 +49,7 @@ public class HtmlUtil extends Contacts{
 		httpUtils.configCookieStore(cookieStore);
 		List<Cookie> cookie=cookieStore.getCookies();
 		httpUtils.configSoTimeout(10*1000);
-		String url=dataUrl+mothodname;
+		String url=dataUrl+requestUrl;
 		LogShow.i(url);
 		httpUtils.send(method, url,rps,new RequestCallBack<String>() {
 

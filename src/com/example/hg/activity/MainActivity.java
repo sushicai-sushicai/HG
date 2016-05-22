@@ -33,7 +33,7 @@ public class MainActivity extends BaseFragmentActivity implements OnCheckedChang
 	protected void onCreate(Bundle savedInstanceState) {
  		super.onCreate(savedInstanceState);
  	}
-
+	
 
 
 	@Override
@@ -111,4 +111,14 @@ public class MainActivity extends BaseFragmentActivity implements OnCheckedChang
 		this.checkedId = checkedId;
 		setFragmentItem(checkedId);
 	}
+
+
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+	}
+
 }

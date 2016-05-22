@@ -35,10 +35,7 @@ public class StringUtil {
 		return sub;
 	}
 	public static String replacephoneString(String tel) {
-		System.out.println("=================================="+(tel));
-		String replaceStr=tel.substring(5,4);	
-		System.out.println("=================================="+(replaceStr));
-		return tel.replace(replaceStr,"****");
+		return tel.replace(tel.substring(4,8),"****");
 	}
 	
 

@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 public abstract class BaseActivity extends Activity{
-	public static String userinfo = "userinfo";
+	
 	public MyApplication appContext;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public abstract class BaseActivity extends Activity{
 	/*public void gotoActivity(Class<? extends Activity> cla,Bundle bundle){
 		Intent inten=new Intent();
 	}*/
-	
+	public static String userinfo = "userinfo";
 	public String getPreferenceString(String key){
 		SharedPreferences preferences=getSharedPreferences(userinfo, MODE_PRIVATE);
 		return preferences.getString(key,"");

@@ -42,7 +42,7 @@ public class ImgManager {
 	}
 	public void getHead(ImageView head){
 		File file=new File(CommonUtils.HEADCACHE);
-		if(null==file) return;
+		if(null==file) return ;
 		Bitmap bitmap=BitmapFactory.decodeFile(CommonUtils.HEADCACHE);
 		if(null==bitmap)return;
 		

@@ -6,6 +6,7 @@ import com.example.hg.activity.LoginActivity;
 import com.example.hg.activity.MyInformationActivity;
 import com.example.hg.activity.R;
 import com.example.hg.app.MyApplication;
+import com.example.hg.pic.ImgManager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
@@ -43,6 +44,7 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 	private ImageView qrcode;
 	@ViewInject(R.id.head)
 	private ImageView head;
+	private ImgManager im;
 	
 	@Override
 	public void onResume() {
@@ -52,28 +54,15 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 			tologin.setText(getPreferenceString("username"));
 			String tel=getPreferenceString("memphone");
 			if(tel.length()==11) phone.setText(StringUtil.replacephoneString(tel));
-			
-			
-			
-		}
-		/*if (MyApplication.isLogin) {
-			tologin.setText(getPreferenceString("memnick"));
-			String ph=getPreferenceString("memphone");
-			if(ph.length()==11)
-			phone.setText(StringUtils.replacephoneString(ph));
 			phone.setVisibility(View.VISIBLE);
-			if(mi==null){
-				mi = new ManagerImg();
-			}
-			mi.getHead(head);	
+			if(im==null) im=new ImgManager();
+		//	im.getHead(head);			
 		}else{
-			tologin.setText("登录/注册");
+			tologin.setText("登陆/注册");
 			phone.setVisibility(View.GONE);
-			if(mi==null){
-				mi = new ManagerImg();
-			}
-			mi.getHead(null);	
-		}*/
+			if(null==im) im=new ImgManager();
+			//im.getHead(null);
+		}		
 	}
 	
 	@Override
@@ -96,7 +85,7 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		
 	}
 	//@OnClick({R.id.myaddress,R.id.mycollect,R.id.turn,R.id.more,R.id.tologin,R.id.toinformation,R.id.tv_share})
-	@OnClick({R.id.myaddress,R.id.toinformation})
+	@OnClick({R.id.myaddress,R.id.toinformation,R.id.tologin,R.id.toinformation})
 	public void myclick(View v){	
 		if(!MyApplication.isLogin){
 			toast("请登录!");
