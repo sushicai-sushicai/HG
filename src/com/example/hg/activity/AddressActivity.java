@@ -3,14 +3,11 @@ package com.example.hg.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
-import android.opengl.Visibility;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hg.action.AddressManager;
 import com.lidroid.xutils.ViewUtils;
@@ -18,7 +15,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 
 
-public class AdressActivity extends BaseActivity{
+public class AddressActivity extends BaseActivity{
 	@ViewInject(R.id.title)
 	private TextView title;
 	@ViewInject(R.id.turn)
@@ -44,7 +41,6 @@ public class AdressActivity extends BaseActivity{
 	}
 	@OnClick({R.id.turn})
 	public void myClick(View view){
-		toast(view.getId()+"");
 		switch (view.getId()) {
 		case R.id.turn:
 			finish();

@@ -1,7 +1,7 @@
 package com.example.hg.fragment;
 
 import com.example.hg.HttpUtils.StringUtil;
-import com.example.hg.activity.AdressActivity;
+import com.example.hg.activity.AddressActivity;
 import com.example.hg.activity.LoginActivity;
 import com.example.hg.activity.MyInformationActivity;
 import com.example.hg.activity.R;
@@ -94,7 +94,7 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		}
 		switch (v.getId()) {
 		case R.id.myaddress:
-			gotoActivity(AdressActivity.class, null);
+			gotoActivity(AddressActivity.class, null);
 			break;
 		case R.id.toinformation:
 			gotoActivity(MyInformationActivity.class, null);

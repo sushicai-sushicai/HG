@@ -17,6 +17,8 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,32 +39,20 @@ public class AddressManager extends BaseManger{
 		this.ulv=ulv;
 		adapter=new AddressAdapter(context, list, isEdit);
 		ulv.setAdapter(adapter);
-		View linearLayout=View.inflate(context, R.layout.emptyview, null);
-		TextView tv
-		
-		/*// TODO Auto-generated constructor stub
-		this.ulv=ulv;
-		adapter=new AddressAdapter(context, list,isEdit,this);
-		
-		ulv.setAdapter(adapter);
-		View ll = View.inflate(context, R.layout.emptyview, null);
-		TextView tv = (TextView) ll.findViewById(R.id.tv);
+		View ll=View.inflate(context, R.layout.emptyview, null);
+		TextView tv=(TextView) ll.findViewById(R.id.tv);
 		ll.setVisibility(View.GONE);
-		((ViewGroup)ulv.getParent()).addView(ll);
-		ulv.setEmptyView(ll);
-		tv.setOnClickListener(new OnClickListener() {
-			
+		((ViewGroup)ulv.getParent()).addView(ll);		
+		this.ulv.setEmptyView(ll);
+		tv.setOnClickListener(new OnClickListener() {			
 			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				data();
+			public void onClick(View arg0) {
+				getData();
+				
 			}
 		});
-		
-		data();*/
 	}
-
-	private void data(){
+	private void getData(){
 		RequestParams rps=new RequestParams();
 		MyApplication.getHtmlUtil().xutils(HttpMethod.POST, "associator/getDistribution", rps, new CallBack(){
 			@Override
@@ -75,7 +65,7 @@ public class AddressManager extends BaseManger{
 				Gson gson=new Gson();
 				try {
 					if(json.getString("status").equals("1")){
-						System.out.println(json);
+						System.out.println("==================="+json);
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

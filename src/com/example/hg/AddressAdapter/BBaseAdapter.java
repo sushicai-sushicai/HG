@@ -1,11 +1,27 @@
 package com.example.hg.AddressAdapter;
 
+import java.util.List;
+
+import com.example.hg.app.MyApplication;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 public class BBaseAdapter extends BaseAdapter{
-
+	Context context;
+	List<Object> list;
+	LayoutInflater inflater;
+	public MyApplication appContext;
+	public BBaseAdapter(Context context,List<Object> list){
+		this.context=context;
+		this.list=list;
+		inflater=LayoutInflater.from(context);
+		appContext=(MyApplication) ((Activity)context).getApplication();
+	}
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
