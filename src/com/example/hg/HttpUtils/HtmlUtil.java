@@ -3,10 +3,13 @@ package com.example.hg.HttpUtils;
 
 import java.util.List;
 
+import javax.security.auth.callback.Callback;
+
 import org.apache.http.cookie.Cookie;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONException;
@@ -50,6 +53,10 @@ public class HtmlUtil extends Contacts{
 		List<Cookie> cookie=cookieStore.getCookies();
 		httpUtils.configSoTimeout(10*1000);
 		String url=dataUrl+requestUrl;
+		if(rps!=null){
+			rps.setHeader("Cookie","JSESSIONID="+context. getSharedPreferences("userinfo",
+					Context.MODE_PRIVATE).getString("token", ""));	
+		}
 		LogShow.i(url);
 		httpUtils.send(method, url,rps,new RequestCallBack<String>() {
 
@@ -80,4 +87,81 @@ public class HtmlUtil extends Contacts{
 			
 		});
 	}
+	public void xutils2(HttpMethod post, String string, RequestParams params,Callback callback) {
+		if(httpUtils==null) httpUtils=new HttpUtils();
+		if(params!=null)
+			params.setHeader("Cookie","JSESSIONID="+context.getSharedPreferences("userinfo",Context.MODE_PRIVATE).getString("token",""));
+		PreferencesCookieStore cookeStore=new PreferencesCookieStore(context);
+		cookeStore.clear();
+		httpUtils.configCookieStore(cookeStore);
+		List<Cookie> cookie=cookeStore.getCookies();
+		for(int i=0;i<cookie.size();i++){
+			LogShow.d(cookie.get(i).getComment());
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * public void xutilsc(HttpMethod method,String mothodname,RequestParams params,final CallBack callBack){
+			
+			// 保存服务器端(Session)的Cookie
+			PreferencesCookieStore cookieStore = new PreferencesCookieStore(context);
+			cookieStore.clear(); // 清除原来的cookie
+			hutils.configCookieStore(cookieStore);
+			
+			List<Cookie> cookie=cookieStore.getCookies();
+			for (int i = 0; i < cookie.size(); i++) {
+				LogShow.d(cookie.get(i).getComment());
+			}
+			LogShow.d(cookieStore.getCookies().toString());
+			hutils.configSoTimeout(10*1000);
+			String url=dataurl+mothodname;
+			LogShow.i(url);
+			hutils.send(method,url, params, new RequestCallBack<String>() {
+				
+				@Override
+				public void onFailure(HttpException arg0, String msg) {
+					// TODO Auto-generated method stub
+					GetProgressBar.dismissMyProgressBar();
+					LogShow.e( msg);
+					callBack.onError(msg);
+				}
+				
+				@Override
+				public void onSuccess(ResponseInfo<String> arg0) {
+					// TODO Auto-generated method stub
+					GetProgressBar.dismissMyProgressBar();
+					String str=arg0.result;
+					LogShow.d(str);
+					if(StringUtils.isJSONObejcet(str)){
+						try {
+							JSONObject json=new JSONObject(str);
+							if(json.getInt(Contacts.STATUS)==-1){
+								Intent it = new Intent(context, LoginActivity.class);
+								it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS); 
+								context.startActivity(it);
+								
+							}
+							callBack.onBack(json);
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+			});
+		}
+		
+	 */
 }

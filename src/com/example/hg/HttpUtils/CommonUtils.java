@@ -45,4 +45,13 @@ public class CommonUtils {
 	}
 	/**缓存头像图片*/
 	public static String HEADCACHE=headPath()+"/headcache.jpg";
+	/**
+	 * 清除用户缓存文件
+	 */
+	public static void cleanUserCaheFiles() {
+		File directory=new File(SdCachePath());
+		if (directory != null && directory.exists() && directory.isDirectory()) {
+			for (File file : directory.listFiles()) file.delete();			
+		}		
+	}
 }

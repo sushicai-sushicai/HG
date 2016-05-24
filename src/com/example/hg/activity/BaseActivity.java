@@ -44,7 +44,44 @@ public abstract class BaseActivity extends Activity{
 		editor.putString(arg0, arg1);
 		editor.commit();
 	}
+	public void savePreferenceBoolean(String key, boolean value) {
+		SharedPreferences preferences = getSharedPreferences(userinfo,
+				MODE_PRIVATE);
+		Editor editor = preferences.edit();
+		editor.putBoolean(key, value);
+		editor.commit();
+	}
+
+	public boolean getPreferenceBoolean(String key) {
+		SharedPreferences preferences = getSharedPreferences(userinfo,
+				MODE_PRIVATE);
+		return preferences.getBoolean(key, false);
+	}
+
 	
+
+	public void deleteKey(String key) {
+		SharedPreferences preferences = getSharedPreferences(userinfo,
+				MODE_PRIVATE);
+		Editor editor = preferences.edit();
+		editor.remove(key);
+		editor.commit();
+	}
+
+	public void savePreferenceLong(String key, long value) {
+		SharedPreferences preferences = getSharedPreferences(userinfo,
+				MODE_PRIVATE);
+		Editor editor = preferences.edit();
+		editor.putLong(key, value);
+		editor.commit();
+	}
+
+	public long getPreferenceLong(String key) {
+		SharedPreferences preferences = getSharedPreferences(userinfo,
+				MODE_PRIVATE);
+		return preferences.getLong(key, 0);
+	}
+
 	protected void toast(String text) {
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 	}

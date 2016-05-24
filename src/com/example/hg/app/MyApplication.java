@@ -26,12 +26,18 @@ public class MyApplication extends Application{
 		SharedPreferences preferences = getSharedPreferences("userinfo",MODE_PRIVATE);
 		return preferences.getBoolean(key, false);
 	}
+	
+	public static HtmlUtil getHtmlUtil(){
+		return htmlUtil;
+	}
+	/**
+	 * 判断是否网络是否可用
+	 * @return
+	 */
 	public boolean isNetWorkConnected(){
 		ConnectivityManager cm=(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo ni=cm.getActiveNetworkInfo();
 		return ni!=null && ni.isConnectedOrConnecting();
-	}
-	public static HtmlUtil getHtmlUtil(){
-		return htmlUtil;
+		
 	}
 }

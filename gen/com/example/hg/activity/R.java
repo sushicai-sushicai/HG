@@ -548,6 +548,7 @@ containing a value of this type.
     public static final class id {
         public static final int about_feedback_btn=0x7f080055;
         public static final int about_rating_btn=0x7f080056;
+        public static final int aboutus=0x7f0803b1;
         public static final int account_setting_gift=0x7f08011f;
         public static final int account_setting_notification=0x7f080119;
         public static final int account_setting_renren=0x7f0800b5;
@@ -662,7 +663,9 @@ containing a value of this type.
         public static final int center=0x7f080003;
         public static final int check_new_version_icon=0x7f080173;
         public static final int checkbox=0x7f080162;
+        public static final int checkversion=0x7f0803b0;
         public static final int circle=0x7f080000;
+        public static final int cleanimg=0x7f0803af;
         public static final int clear_pic_cache=0x7f0801c4;
         public static final int clock_time=0x7f0800f1;
         public static final int clock_time_indicator=0x7f0800f2;
@@ -1500,6 +1503,7 @@ containing a value of this type.
         public static final int myhomelayout=0x7f030006;
         public static final int myinformation=0x7f030007;
         public static final int myprogressbar=0x7f030008;
+        public static final int systemsetting=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;

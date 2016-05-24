@@ -5,6 +5,7 @@ import com.example.hg.activity.AddressActivity;
 import com.example.hg.activity.LoginActivity;
 import com.example.hg.activity.MyInformationActivity;
 import com.example.hg.activity.R;
+import com.example.hg.activity.SystemSettingActivity;
 import com.example.hg.app.MyApplication;
 import com.example.hg.pic.ImgManager;
 import com.lidroid.xutils.ViewUtils;
@@ -85,7 +86,7 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		
 	}
 	//@OnClick({R.id.myaddress,R.id.mycollect,R.id.turn,R.id.more,R.id.tologin,R.id.toinformation,R.id.tv_share})
-	@OnClick({R.id.myaddress,R.id.toinformation,R.id.tologin,R.id.toinformation})
+	@OnClick({R.id.myaddress,R.id.toinformation,R.id.tologin,R.id.toinformation,R.id.more})
 	public void myclick(View v){	
 		if(!MyApplication.isLogin){
 			toast("请登录!");
@@ -137,7 +138,7 @@ public class MyHomeFragment extends BaseFragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.more:
-			//gotoActivity(SystemSettingActivity.class, null);
+			gotoActivity(SystemSettingActivity.class, null);
 			break;
 		}
 	}
