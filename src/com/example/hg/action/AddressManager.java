@@ -2,26 +2,26 @@ package com.example.hg.action;
 
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.example.hg.AddressAdapter.AddressAdapter;
-import com.example.hg.HttpUtils.HttpCallBack.CallBack;
-import com.example.hg.activity.R;
-import com.example.hg.app.MyApplication;
-import com.google.gson.Gson;
-import com.lidroid.xutils.http.RequestParams;
-import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
-
 
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.hg.AddressAdapter.AddressAdapter;
+import com.example.hg.HttpUtils.HttpCallBack.CallBack;
+import com.example.hg.activity.R;
+import com.example.hg.app.MyApplication;
+import com.example.hg.entity.Address;
+import com.google.gson.Gson;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 public class AddressManager extends BaseManger{
 	private ListView ulv;
@@ -65,7 +65,21 @@ public class AddressManager extends BaseManger{
 				Gson gson=new Gson();
 				try {
 					if(json.getString("status").equals("1")){
-						System.out.println("==================="+json);
+						JSONArray jsonArray=json.getJSONArray("distribution");
+						if(jsonArray!=null && jsonArray.length()>0){
+							list.clear();
+							for (int i = 0; i < jsonArray.length(); i++) {
+								Address address=new Address();
+								System.out.println(jsonArray.getJSONObject(i));
+								address=gson.fromJson(jsonArray.getJSONObject(i).toString(), Address.class);
+								list.add(address);
+							}
+							
+						}
+						System.out.println("============jsonArray==========="+jsonArray);
+						adapter.notifyDataSetChanged();
+					}else{
+						toast(json.getString("msg"));
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

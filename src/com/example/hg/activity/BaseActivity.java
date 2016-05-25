@@ -88,4 +88,28 @@ public abstract class BaseActivity extends Activity{
 	protected void toast(int text) {
 		Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
 	}
+	/**
+	 * 跳转到另一个页面
+	 * */
+	public void gotoActivity(Class<? extends Activity> cls, boolean finish,
+			Bundle bundle) {
+
+		Intent intent = new Intent(this, cls);
+		if (bundle != null) {
+			intent.putExtras(bundle);
+		}
+		startActivity(intent);
+		if (finish) {
+			finish();
+		}
+	}
+	
+	public void gotoActivity(Class<? extends Activity> cls, boolean finish) {
+		Intent it = new Intent(this, cls);
+		startActivity(it);
+		if (finish) {
+			finish();
+		}
+	}
+
 }

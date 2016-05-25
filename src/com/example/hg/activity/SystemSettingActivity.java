@@ -1,6 +1,5 @@
 package com.example.hg.activity;
 
-import javax.security.auth.callback.Callback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hg.HttpUtils.CommonUtils;
+import com.example.hg.HttpUtils.HttpCallBack.CallBack;
 import com.example.hg.app.MyApplication;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.http.RequestParams;
@@ -44,7 +44,6 @@ public class SystemSettingActivity extends BaseActivity{
 	
 	@OnClick({R.id.logout,R.id.turn})
 	public void MyClick(View v){
-		//toast("ssssssssss");
 		switch (v.getId()) {
 		case R.id.turn:
 			finish();			
@@ -76,7 +75,19 @@ public class SystemSettingActivity extends BaseActivity{
 		finish();
 		toast("你已退出登录");
 		RequestParams params = new RequestParams();
-		MyApplication.getHtmlUtil().xutils2(HttpMethod.POST, "member/logout", params, new Callback() {
+		MyApplication.getHtmlUtil().xutils2(HttpMethod.POST, "member/logout", params, new CallBack() {
+			
+			@Override
+			public void onError(String msg) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onBack(JSONObject json) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 		});
 	}

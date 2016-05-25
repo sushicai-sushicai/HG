@@ -39,12 +39,14 @@ public class AddressActivity extends BaseActivity{
 		address=new ArrayList<Object>();	
 		
 	}
-	@OnClick({R.id.turn})
+	@OnClick({R.id.turn,R.id.add_address})
 	public void myClick(View view){
 		switch (view.getId()) {
 		case R.id.turn:
 			finish();
 			break;
+		case R.id.add_address:
+			gotoActivity(AddAddressActivity.class,false);
 		default:
 			break;
 		}
