@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.apache.http.cookie.Cookie;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -41,7 +42,7 @@ public class HtmlUtil extends Contacts{
 			imgUrl=context.getResources().getString(R.string.imgurl);
 		}
 	}
-	public void xutils(HttpMethod method,String requestUrl,RequestParams rps,final CallBack collback){
+	private void xutil(HttpMethod method,String requestUrl,RequestParams rps,final CallBack collback){
 		if(httpUtils==null) httpUtils=new HttpUtils();
 		//保存服务器端session的ID
 		PreferencesCookieStore cookieStore=new PreferencesCookieStore(context);
@@ -84,6 +85,12 @@ public class HtmlUtil extends Contacts{
 			
 		});
 	}
+	
+	public void xutils(HttpMethod mothodname,String requestUrl,RequestParams params,final CallBack callBack){
+		System.out.println("==========dataUrl:==="+dataUrl);
+		//this.xutil(method, requestUrl, rps, collback);
+	}
+	/**路径去掉/web*/
 	public void xutils2(HttpMethod mothodname, String requestUrl, RequestParams params,final CallBack collback) {
 		if(httpUtils==null) httpUtils=new HttpUtils();
 		if(params!=null)
@@ -97,6 +104,7 @@ public class HtmlUtil extends Contacts{
 		}
 		httpUtils.configSoTimeout(10*1000);
 		String url=dataUrl+requestUrl;
+		System.out.println("----------------------url:"+url);
 		httpUtils.send(mothodname, url, params,new RequestCallBack<String>() {
 
 			@Override
@@ -124,23 +132,12 @@ public class HtmlUtil extends Contacts{
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					/*try {
-						JSONObject json=new JSONObject(str);
-						if(json.getInt(Contacts.STATUS)==-1){
-							Intent it = new Intent(context, LoginActivity.class);
-							it.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS); 
-							context.startActivity(it);
-							
-						}
-						callBack.onBack(json);
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}*/
 				}
 			}
 			
 		});
 		
 	}
+
+
 }

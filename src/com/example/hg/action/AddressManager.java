@@ -76,7 +76,6 @@ public class AddressManager extends BaseManger{
 							}
 							
 						}
-						System.out.println("============jsonArray==========="+jsonArray);
 						adapter.notifyDataSetChanged();
 					}else{
 						toast(json.getString("msg"));
